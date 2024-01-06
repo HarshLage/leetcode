@@ -1,0 +1,19 @@
+class Solution {
+public:
+    int missingInteger(vector<int>& nums) {
+        int countsum = nums[0];
+        for(int i=1;i<nums.size();i++){
+            if(nums[i-1]+1==nums[i]) countsum += nums[i];
+            else break;
+        }
+
+        sort(nums.begin(),nums.end());
+        for(int i=0;i<nums.size();i++){
+            if(nums[i]==countsum){
+                countsum++;
+            }
+        }
+        return countsum;
+    }
+};
+
